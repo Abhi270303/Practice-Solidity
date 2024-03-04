@@ -5,10 +5,28 @@ contract SimpleStorage{
     // Basic  Types : boolean, uint, int, address, bytes
     
     //favouriteNumber gets initialized to 0 if no value is given
-    uint256 public favouriteNumber; //0
+    
+    uint256 public myFavouriteNumber; //0
+
+    //uint256[] listOfFavouriteNumbers;
+    struct Person{
+        uint256 favouriteNumber;
+        string name;
+    }
+
+    // static array
+    // Person[3] public listOfPeople; // []
+
+    // dynamic array
+    Person[] public listOfPeople; // []
+
+
+    // Person public abhi = Person({favouriteNumber: 7, name: "Abhi"});
+    // Person public adi = Person({favouriteNumber: 7, name: "Adi"});
+    // Person public abhay = Person({favouriteNumber: 7, name: "Abhay"});
 
     function store(uint256 _favouriteNumber) public {
-        favouriteNumber = _favouriteNumber;
+        myFavouriteNumber = _favouriteNumber;
         // retrieve(); // it will cost more gas as the contract calls the function internally
     }
 
@@ -18,6 +36,13 @@ contract SimpleStorage{
 
     // view, pure
     function retrieve() public view returns(uint256) {
-        return favouriteNumber;
+        return myFavouriteNumber;
+    }
+
+    function addPerson(string memory _name, uint256 _favouriteNumber) public {
+        // Person memory newPerson = Person(_favouriteNumber, _name);
+        // listOfPeople.push(newPerson);
+
+        listOfPeople.push( Person(_favouriteNumber, _name) );
     }
 }
