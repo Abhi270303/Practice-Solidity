@@ -39,6 +39,11 @@ contract SimpleStorage{
         return myFavouriteNumber;
     }
 
+    // calldata, memory, storage
+    //calldata is temporary variable that cannot be modified
+    //memory is temporary variable that can be modified
+    //storage is permanent variable that can be modified
+
     function addPerson(string memory _name, uint256 _favouriteNumber) public {
         // Person memory newPerson = Person(_favouriteNumber, _name);
         // listOfPeople.push(newPerson);
