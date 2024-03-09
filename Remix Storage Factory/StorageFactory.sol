@@ -9,6 +9,7 @@ contract StorageFactory {
     SimpleStorage[] public listOfSimpleStorageContracts;
 
     function createSimpleStorageContract() public {
+        // with the new keywords we can deloy contracts from another contract
         SimpleStorage simpleStorageContractVariable = new SimpleStorage();
         // SimpleStorage simpleStorage = new SimpleStorage();
         listOfSimpleStorageContracts.push(simpleStorageContractVariable);
